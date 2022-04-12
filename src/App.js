@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import KakaoCallback from './auth/KakaoCallback';
 import Profile from './pages/Profile';
+import TestSearch from './pages/TestSearch';
 import kakaoLoginBtnImg from './image/kakao_login_large_narrow.png';
 import './App.css';
 
@@ -27,6 +28,7 @@ function App() {
             ></Route>
             <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/test" element={<TestSearch />}></Route>
           </Routes>
         </div>
       </div>
