@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import KakaoCallback from './auth/KakaoCallback';
+import Home from './pages/Home';
 import Profile from './pages/Profile';
 import TestSearch from './pages/TestSearch';
 import kakaoLoginBtnImg from './image/kakao_login_large_narrow.png';
@@ -18,8 +19,9 @@ function App() {
       <div className="App">
         <div>
           <Routes>
+            <Route path="/" element={<Home />}></Route>
             <Route
-              path="/home"
+              path="/login"
               element={
                 <a className="login-button" onClick={kakaoLogin}>
                   <img src={kakaoLoginBtnImg}></img>
