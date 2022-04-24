@@ -1,6 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  // 페이지 이동 훅(기존 useHistory)
+  const navigate = useNavigate();
+
+  const createInvitation = () => {
+    navigate('/invitation/create');
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-md bg-white mt-2">
@@ -9,10 +17,10 @@ const Home = () => {
           <div>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item text-center">
-                <h5 className="px-2 fw-light">About</h5>
+                <h5 className="mx-2 fw-light">About</h5>
               </li>
               <li className="nav-item text-center">
-                <h5 className="px-2 fw-light">Contact</h5>
+                <h5 className="mx-2 fw-light">Contact</h5>
               </li>
             </ul>
           </div>
@@ -20,7 +28,12 @@ const Home = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item text-center">
                 <a className="text-decoration-none text-black">
-                  <h5 className="fw-light">로그인</h5>
+                  <h5 className="mx-2 fw-light">로그인</h5>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="text-decoration-none text-black" onClick={createInvitation}>
+                  <span className="mx-2 link">링크 등록하기</span>
                 </a>
               </li>
             </ul>

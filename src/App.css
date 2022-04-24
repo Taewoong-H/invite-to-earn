@@ -6,6 +6,13 @@
   font-weight: 900;
 }
 
+.link {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
 .banner-container {
   margin-top: 8rem;
 }

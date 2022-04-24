@@ -6,18 +6,22 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState();
 
   const { Kakao } = window;
+  const { localStorage } = window;
 
   const getProfile = async () => {
     try {
       // Kakao SDK API를 이용해 사용자 정보 획득
-      const data = await Kakao.API.request({
+      await Kakao.API.request({
         url: '/v2/user/me',
+        success: function(response) {
+          console.log(response);
+          // 사용자 정보 변수에 저장
+          setUserId(response.id);
+          setNickName(response.properties.nickname);
+          setProfileImage(response.properties.profile_image);
+        },
+        fail: function(error) {},
       });
-
-      // 사용자 정보 변수에 저장
-      setUserId(data.id);
-      setNickName(data.properties.nickname);
-      setProfileImage(data.properties.profile_image);
     } catch (err) {
       console.log(err);
     }
