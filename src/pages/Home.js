@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const [service, setService] = useState('');
   // 페이지 이동 훅(기존 useHistory)
   const navigate = useNavigate();
 
   const createInvitation = () => {
     navigate('/invitation/create');
+  };
+
+  const changeSearch = (e) => {
+    setService(e.target.value);
+    console.log(service);
+  };
+
+  const onSearch = (e) => {
+    if (e.key === 'Enter') {
+      //ToDo: 검색 시 URL Param으로 검색어를 전달. 검색어는 파라미터로 검색됨.
+      console.log(service);
+    }
   };
 
   return (
@@ -40,20 +53,22 @@ const Home = () => {
           </div>
         </div>
       </nav>
-      <body>
-        <div className="container">
-          <div className="banner-container d-inline-block">
-            <h1 className="banner text-start px-2">
-              <span className="deco">링크 등록</span>하고, <br /> 필요한 <span className="deco">링크 찾아가고</span>
-            </h1>
-            <p className="banner-sm mt-4">
-              필요한 링크를 검색해서 포인트를 얻어가거나 본인의 링크를 등록한 후<br />
-              다른 유저를 초대하여 포인트 얻어가세요!
-            </p>
-            <input type="text" className="search mt-4"></input>
+
+      <div className="container">
+        <div className="banner-container d-inline-block">
+          <h1 className="banner text-start px-2">
+            <span className="deco">링크 등록</span>하고, <br /> 필요한 <span className="deco">링크 찾아가고</span>
+          </h1>
+          <p className="banner-sm mt-4">
+            필요한 링크를 검색해서 포인트를 얻어가거나 본인의 링크를 등록한 후<br />
+            다른 유저를 초대하여 포인트 얻어가세요!
+          </p>
+          <div className="search-container mt-4" onKeyPress={onSearch}>
+            <input type="text" className="search" value={service} onChange={changeSearch}></input>
+            <i className="bi bi-search"></i>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 };

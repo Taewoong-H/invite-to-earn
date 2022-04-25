@@ -31,9 +31,21 @@
   color: #6e707e;
 }
 
-.search {
+.search-container {
+  position: relative;
+}
+
+.search-container .search {
   width: 100%;
-  height: 4rem;
+  height: 3rem;
   border: 1.5px solid #d8d8d8;
   border-radius: 32px;
+  padding: 0rem 2.5rem;
+}
+
+.search-container i {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+  color: gray;
 }
