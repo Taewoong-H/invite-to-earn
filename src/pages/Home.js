@@ -12,13 +12,13 @@ const Home = () => {
 
   const changeSearch = (e) => {
     setService(e.target.value);
-    console.log(service);
   };
 
   const onSearch = (e) => {
     if (e.key === 'Enter') {
       //ToDo: 검색 시 URL Param으로 검색어를 전달. 검색어는 파라미터로 검색됨.
       console.log(service);
+      navigate(`/search?q=${service}`);
     }
   };
 

@@ -11,7 +11,7 @@ const CreateInvitation = () => {
       desc: '회원가입시 5,000원 지급',
     };
     try {
-      const res = await axios.post('/invitation/create/', body);
+      const res = await axios.post('/invitation/create', body);
 
       console.log(res);
     } catch (err) {
