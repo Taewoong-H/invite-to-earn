@@ -6,7 +6,6 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState();
 
   const { Kakao } = window;
-  const { localStorage } = window;
 
   const getProfile = async () => {
     try {

@@ -16,17 +16,16 @@ const KakaoCallback = () => {
       client_id: process.env.REACT_APP_REST_API_KEY,
       redirect_uri: process.env.REACT_APP_REDIRECT_URI,
       code: code,
-      client_secret: process.env.REACT_APP_CLIENT_SECRET,
+      // client_secret: process.env.REACT_APP_CLIENT_SECRET,
     });
     try {
       // access token 가져오기
       const res = await axios.post('https://kauth.kakao.com/oauth/token', payload);
 
-      // Kakao Javascript SDK 초기화
-      // Kakao.init(process.env.REACT_APP_JAVASCRIPT_KEY);
       // access token 설정
       Kakao.Auth.setAccessToken(res.data.access_token);
-      navigate('/profile');
+      console.log(res.data);
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
