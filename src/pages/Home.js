@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import LoginModal from '../components/LoginModal';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Home.css';
 
-const Home = () => {
+const Home = ({ getLoginInfo }) => {
   const [service, setService] = useState('');
-  const [isModal, setIsModal] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [userProfile, setUserProfile] = useState({});
-  const { Kakao } = window;
+
   // 페이지 이동 훅(기존 useHistory)
   const navigate = useNavigate();
-
-  const createInvitation = () => {
-    navigate('/invitation/create');
-  };
+  // 현재 위치 객체 반환(navigate props 가져옴)
+  const location = useLocation();
 
   const changeSearch = (e) => {
     setService(e.target.value);
@@ -26,84 +20,16 @@ const Home = () => {
     }
   };
 
-  const loginModalToggle = () => {
-    setIsModal(!isModal);
-  };
-
-  const getProfile = async () => {
-    try {
-      // Kakao SDK API를 이용해 사용자 정보 획득
-      await Kakao.API.request({
-        url: '/v2/user/me',
-        success: function(response) {
-          console.log(response);
-          // 사용자 정보 변수에 저장
-          const userProfileData = {
-            userId: response.id,
-            userNickname: response.properties.nickname,
-            userProfileImage: response.properties.profile_image,
-          };
-          setUserProfile(userProfileData);
-        },
-        fail: function(error) {},
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    Kakao.Auth.getStatusInfo(({ status }) => {
-      if (status === 'connected') {
-        setIsLogin(true);
-        getProfile();
-      } else {
-        setIsLogin(false);
-      }
-    });
+    //ToDo: 로그아웃 일 때는 state.isLogin = false이게끔
+    if (location.state && location.state.isLogin) {
+      console.log(location.state);
+      getLoginInfo();
+    }
   }, []);
 
   return (
     <>
-      <nav className="navbar navbar-expand-md bg-white mt-2">
-        <div className="container">
-          <h2 className="navbar-brand my-0 py-2 logo">INVITE 2 EARN</h2>
-          <div>
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item text-center">
-                <h5 className="mx-2 my-0 py-2 fw-light">About</h5>
-              </li>
-              <li className="nav-item text-center">
-                <h5 className="mx-2 my-0 py-2 fw-light">Contact</h5>
-              </li>
-            </ul>
-          </div>
-          <div className="navbar-collapse">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item text-center">
-                {isLogin ? (
-                  <div className="profile">
-                    <div className="profile-image-container">
-                      <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
-                    </div>
-                    <p className="profile-nickname">{userProfile.userNickname}</p>
-                  </div>
-                ) : (
-                  <h5 className="mx-2 my-0 py-2 fw-light login-button" onClick={loginModalToggle}>
-                    로그인/회원가입
-                  </h5>
-                )}
-              </li>
-              <li className="nav-item text-center">
-                <div className="mx-2 my-0 py-2 link" onClick={createInvitation}>
-                  링크 등록하기
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
       <div className="container">
         <div className="banner-container d-inline-block">
           <h1 className="banner text-start px-2">
@@ -125,9 +51,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* 로그인 모달창 */}
-      {isModal && <LoginModal loginModalToggle={loginModalToggle}></LoginModal>}
     </>
   );
 };

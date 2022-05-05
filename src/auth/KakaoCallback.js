@@ -25,7 +25,8 @@ const KakaoCallback = () => {
       // access token 설정
       Kakao.Auth.setAccessToken(res.data.access_token);
       console.log(res.data);
-      navigate('/');
+      // 홈으로 이동, props 전달
+      navigate('/', { state: { isLogin: true } }); //ToDo: 로그아웃 일 때는 state.isLogin = false이게끔
     } catch (err) {
       console.log(err);
     }
