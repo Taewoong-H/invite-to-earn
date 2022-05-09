@@ -64,7 +64,7 @@ function App() {
           <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/search" element={<SearchCode />}></Route>
-          <Route path="/invitation/create" element={<CreateInvitation />}></Route>
+          <Route path="/invitation/create" element={<CreateInvitation userProfile={userProfile} />}></Route>
         </Routes>
       </div>
     </Router>
