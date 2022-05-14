@@ -160,3 +160,8 @@
   font-weight: bolder;
   color: #38a5e1;
 }
+
+/* 검색 결과 창 */
+.result-container {
+  background-color: #f7f7f7;
+}

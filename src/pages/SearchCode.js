@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const SearchCode = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [resultCode, setResultCode] = useState(['']);
   const location = useLocation();
   console.log(location);
   // 한글 인코딩 오류로 디코딩하기
@@ -14,8 +15,9 @@ const SearchCode = () => {
     try {
       setIsLoading(true);
       const res = await axios.get(process.env.REACT_APP_DB_HOST + `/invitation/search-invitation/${query}`);
-
-      console.log(res);
+      const result = res.data;
+      console.log(result);
+      setResultCode(result);
       if (res.status === 200) {
         setIsLoading(false);
       } else {
@@ -30,7 +32,27 @@ const SearchCode = () => {
     getServiceCode();
   }, []);
 
-  return <>{isLoading ? <div>로딩중</div> : query}</>;
+  return (
+    <>
+      {isLoading ? (
+        <div>로딩중</div>
+      ) : (
+        <div className="search-container">
+          <div>{query}</div>
+          <div className="result-container">
+            <div className="container">
+              <p>🙂 서비스의 등록되어 있는 초대코드 / 초대링크 중 랜덤으로 하나만 보여드려요!</p>
+              <div>
+                {resultCode.map((item) => {
+                  return <div>{item.id}</div>;
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default SearchCode;

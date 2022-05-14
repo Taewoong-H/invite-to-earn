@@ -26,7 +26,6 @@ const Home = ({ getLoginInfo }) => {
     try {
       const res = await axios.get(process.env.REACT_APP_DB_HOST + '/invitation/all-services');
       const sliceService = res.data.slice(0, 5);
-      console.log(sliceService);
       setServices(sliceService);
     } catch (err) {
       console.log(err);

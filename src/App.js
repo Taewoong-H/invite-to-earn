@@ -59,7 +59,7 @@ function App() {
         {/* ToDo: nav바 컴포넌트로 따로 빼기 */}
         <NavBar isLogin={isLogin} isModal={isModal} userProfile={userProfile} loginModalToggle={loginModalToggle} />
 
-        <Routes basename="/invite-to-earn">
+        <Routes basename="/">
           <Route path="/" element={<Home getLoginInfo={getLoginInfo} />}></Route>
           <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
           <Route path="/profile" element={<Profile />}></Route>
