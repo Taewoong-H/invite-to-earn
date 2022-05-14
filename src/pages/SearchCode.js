@@ -13,7 +13,7 @@ const SearchCode = () => {
   const getServiceCode = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(`/invitation/search-invitation/${query}`);
+      const res = await axios.get(process.env.REACT_APP_DB_HOST + `/invitation/search-invitation/${query}`);
 
       console.log(res);
       if (res.status === 200) {

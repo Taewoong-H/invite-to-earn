@@ -23,12 +23,7 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item text-center">
               {isLogin ? (
-                <div className="profile">
-                  <div className="profile-image-container">
-                    <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
-                  </div>
-                  <p className="profile-nickname">{userProfile.userNickname}</p>
-                </div>
+                ''
               ) : (
                 <h5 className="mx-2 my-0 py-2 fw-light login-button" onClick={loginModalToggle}>
                   로그인/회원가입
@@ -39,6 +34,15 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
               <Link to="/invitation/create">
                 <div className="mx-2 my-0 py-2 link">링크 등록하기</div>
               </Link>
+            </li>
+            <li className="nav-item text-center">
+              {isLogin ? (
+                <div className="profile-image-container">
+                  <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
+                </div>
+              ) : (
+                ''
+              )}
             </li>
           </ul>
         </div>

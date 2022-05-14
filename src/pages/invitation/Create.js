@@ -17,7 +17,7 @@ const CreateInvitation = ({ userProfile }) => {
     };
     console.log(body);
     try {
-      const res = await axios.post('/invitation/create', body);
+      const res = await axios.post(process.env.REACT_APP_DB_HOST + '/invitation/create', body);
 
       console.log(res);
     } catch (err) {
@@ -26,7 +26,7 @@ const CreateInvitation = ({ userProfile }) => {
   };
   const searchService = async (e) => {
     try {
-      const res = await axios.get(`/invitation/search-service/${serviceName}`);
+      const res = await axios.get(process.env.REACT_APP_DB_HOST + `/invitation/search-service/${serviceName}`);
       const serviceIdArray = res.data.map((item) => {
         return item.id;
       });

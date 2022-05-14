@@ -24,13 +24,18 @@ const Home = ({ getLoginInfo }) => {
 
   const getAllService = async () => {
     try {
-      const res = await axios.get('/invitation/all-services');
+      const res = await axios.get(process.env.REACT_APP_DB_HOST + '/invitation/all-services');
       const sliceService = res.data.slice(0, 5);
       console.log(sliceService);
       setServices(sliceService);
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const searchService = (e, param) => {
+    console.log(e.target);
+    navigate(`/search?q=${param}`);
   };
 
   useEffect(() => {
@@ -69,9 +74,13 @@ const Home = ({ getLoginInfo }) => {
               {services
                 ? services.map((item) => {
                     return (
-                      <div className="col service-box pt-1 px-0" key={item.id}>
+                      <div
+                        className="col service-box pt-1 px-0"
+                        key={item.id}
+                        onClick={(e) => searchService(e, item.service_kr)}
+                      >
                         <img src={item.logo_img} width={30} height={30}></img>
-                        <p className="mb-0 mt-1">{item.service_kr}</p>
+                        <p className="mb-0 mt-1 service-name">{item.service_kr}</p>
                       </div>
                     );
                   })
