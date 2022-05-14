@@ -30,7 +30,6 @@ const CreateInvitation = ({ userProfile }) => {
       const serviceIdArray = res.data.map((item) => {
         return item.id;
       });
-      console.log(serviceIdArray);
       setServiceId(serviceIdArray);
     } catch (err) {
       console.log(err);

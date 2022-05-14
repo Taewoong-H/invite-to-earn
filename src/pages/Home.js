@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 import './Home.css';
 
 const Home = ({ getLoginInfo }) => {
-  const [service, setService] = useState('');
+  const [serviceName, setServiceName] = useState('');
+  const [services, setServices] = useState(['', '', '', '', '']);
 
   // 페이지 이동 훅(기존 useHistory)
   const navigate = useNavigate();
@@ -11,12 +13,23 @@ const Home = ({ getLoginInfo }) => {
   const location = useLocation();
 
   const changeSearch = (e) => {
-    setService(e.target.value);
+    setServiceName(e.target.value);
   };
 
   const onSearch = (e) => {
     if (e.key === 'Enter') {
-      navigate(`/search?q=${service}`);
+      navigate(`/search?q=${serviceName}`);
+    }
+  };
+
+  const getAllService = async () => {
+    try {
+      const res = await axios.get('/invitation/all-services');
+      const sliceService = res.data.slice(0, 5);
+      console.log(sliceService);
+      setServices(sliceService);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -26,6 +39,8 @@ const Home = ({ getLoginInfo }) => {
       console.log(location.state);
       getLoginInfo();
     }
+    // 서비스 목록 불러오기
+    getAllService();
   }, []);
 
   return (
@@ -43,11 +58,29 @@ const Home = ({ getLoginInfo }) => {
             <input
               type="text"
               className="search"
-              value={service}
+              value={serviceName}
               onChange={changeSearch}
               placeholder="찾으시는 서비스를 검색해주세요 :)"
             ></input>
             <i className="bi bi-search"></i>
+          </div>
+          <div className="container mt-5">
+            <div className="row">
+              {services
+                ? services.map((item) => {
+                    return (
+                      <div className="col service-box pt-1 px-0" key={item.id}>
+                        <img src={item.logo_img} width={30} height={30}></img>
+                        <p className="mb-0 mt-1">{item.service_kr}</p>
+                      </div>
+                    );
+                  })
+                : ''}
+              <div className="col service-box pt-1 px-0">
+                <p className="mb-0 fs-5">🧐</p>
+                <p className="mb-0 mt-1">전체보기</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

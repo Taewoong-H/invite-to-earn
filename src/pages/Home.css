@@ -45,7 +45,7 @@
   font-weight: 900;
 }
 
-.banner .deco {
+.deco {
   color: #44b893;
 }
 
@@ -74,6 +74,14 @@
   color: #a7b0c5;
 }
 
+.service-box {
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 0.5rem;
+  color: #222222;
+}
+
 /* 로그인 모달 */
 .login-modal {
   position: fixed;
@@ -91,4 +99,53 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-content {
+  border-radius: 1rem;
+}
+
+.modal-header {
+  display: block;
+  position: relative;
+  padding-top: 2rem;
+  border-bottom: 0px;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.modal-header .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #d8d8d8;
+  border-radius: 20px;
+}
+
+.modal-body .desc {
+  font-size: 0.8rem;
+}
+
+.modal-body .s-desc {
+  margin: 1rem 0 0 0;
+  font-size: 0.7rem;
+}
+
+.modal-footer {
+  border-top: 0px;
+  justify-content: center;
+  padding-top: 0px;
+  font-size: 0.8rem;
+}
+
+.modal-footer .about-button {
+  background-color: #f0f0f0;
+  padding: 0.5rem 4rem;
+}
+
+.modal-footer .about-button .deco {
+  font-weight: bolder;
+  color: #38a5e1;
 }
