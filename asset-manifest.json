@@ -1,13 +1,13 @@
 {
-  "main.css": "./static/css/main.a1a33b40.chunk.css",
-  "main.js": "./static/js/main.2b647f54.chunk.js",
-  "main.js.map": "./static/js/main.2b647f54.chunk.js.map",
-  "static/js/1.707a71b5.chunk.js": "./static/js/1.707a71b5.chunk.js",
-  "static/js/1.707a71b5.chunk.js.map": "./static/js/1.707a71b5.chunk.js.map",
-  "runtime~main.js": "./static/js/runtime~main.4a686d48.js",
-  "runtime~main.js.map": "./static/js/runtime~main.4a686d48.js.map",
-  "static/css/main.a1a33b40.chunk.css.map": "./static/css/main.a1a33b40.chunk.css.map",
-  "index.html": "./index.html",
-  "precache-manifest.404acc144db07a90443e360ef78af6e5.js": "./precache-manifest.404acc144db07a90443e360ef78af6e5.js",
-  "service-worker.js": "./service-worker.js"
+  "main.css": "/invite-to-earn/static/css/main.a1a33b40.chunk.css",
+  "main.js": "/invite-to-earn/static/js/main.159506fb.chunk.js",
+  "main.js.map": "/invite-to-earn/static/js/main.159506fb.chunk.js.map",
+  "static/js/1.707a71b5.chunk.js": "/invite-to-earn/static/js/1.707a71b5.chunk.js",
+  "static/js/1.707a71b5.chunk.js.map": "/invite-to-earn/static/js/1.707a71b5.chunk.js.map",
+  "runtime~main.js": "/invite-to-earn/static/js/runtime~main.afa25422.js",
+  "runtime~main.js.map": "/invite-to-earn/static/js/runtime~main.afa25422.js.map",
+  "static/css/main.a1a33b40.chunk.css.map": "/invite-to-earn/static/css/main.a1a33b40.chunk.css.map",
+  "index.html": "/invite-to-earn/index.html",
+  "precache-manifest.58a0f1f3a43f798f246dbe6ce7675cd0.js": "/invite-to-earn/precache-manifest.58a0f1f3a43f798f246dbe6ce7675cd0.js",
+  "service-worker.js": "/invite-to-earn/service-worker.js"
 }
