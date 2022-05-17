@@ -71,11 +71,11 @@ const Home = ({ getLoginInfo }) => {
           <div className="container mt-5">
             <div className="row">
               {services
-                ? services.map((item) => {
+                ? services.map((item, index) => {
                     return (
                       <div
                         className="col service-box pt-1 px-0"
-                        key={item.id}
+                        key={index}
                         onClick={(e) => searchService(e, item.service_kr)}
                       >
                         <img src={item.logo_img} width={30} height={30}></img>

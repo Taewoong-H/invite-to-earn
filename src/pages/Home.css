@@ -162,6 +162,100 @@
 }
 
 /* 검색 결과 창 */
+.search-service-container {
+  border-top: 1px solid #d8d8d8;
+  padding: 0rem 3.5rem;
+}
+
+.search-service-container .container {
+  position: relative;
+}
+
+.search-service-container .search-service {
+  width: 100%;
+  height: 3.5rem;
+  border: 0;
+  padding: 0rem 3.5rem;
+}
+
+.search-service-container i {
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
+  color: #a7b0c5;
+}
+
 .result-container {
+  min-height: calc(100vh - 7rem);
   background-color: #f7f7f7;
+}
+
+.result-container .container {
+  padding: 2rem 10rem;
+}
+
+.result-container .desc {
+  color: #6e707e;
+  text-align: left;
+}
+
+.result-container .result {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.result-container .result .logo-container {
+  width: 178px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+}
+
+.result-container .result .logo-container .logo {
+  width: 100%;
+  height: 100%;
+}
+
+.result-container .result .name-container {
+  padding-left: 2rem;
+  text-align: left;
+}
+
+.result .name-container .tag {
+  background-color: #e8faf0;
+  color: #20ab7f;
+  padding: 0.2rem 0.4rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.result .name-container .name {
+  margin: 1rem 0;
+}
+
+.result .copy-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.result .copy-container .copy-code {
+  background-color: #e4ecff;
+  color: #4c5d82;
+  padding: 0.4rem 0.6rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.result .copy-container .copy-link {
+  background-color: #f3eefe;
+  color: #7a4c82;
+  padding: 0.4rem 0.6rem;
+  border-radius: 20px;
+  cursor: pointer;
 }
