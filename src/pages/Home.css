@@ -33,7 +33,7 @@
 }
 
 .link {
-  background-color: #2563eb;
+  background-color: #38a5e1;
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -258,4 +258,8 @@
   padding: 0.4rem 0.6rem;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.result .copy-container .copy-link a {
+  color: #7a4c82;
 }

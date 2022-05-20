@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SearchCode = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   // 한글 인코딩 오류로 디코딩하기
   const queryString = decodeURI(location.search);
   const query = queryString.substring(3);
@@ -33,6 +34,27 @@ const SearchCode = () => {
     setSearchService(e.target.value);
   };
 
+  const onSearchService = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/search?q=${searchService}`);
+      //링크 이동 후 리로드
+      navigate(0);
+    }
+  };
+
+  const doCopy = (code) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = code;
+    textarea.style.display = 'hidden';
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    alert(`초대코드가 복사되었습니다.\n${code}`);
+  };
+
   useEffect(() => {
     getServiceCode();
   }, []);
@@ -44,7 +66,7 @@ const SearchCode = () => {
       ) : (
         <div className="search-code-container">
           <div className="search-service-container">
-            <div className="container">
+            <div className="container" onKeyPress={onSearchService}>
               <i className="bi bi-search"></i>
               <input
                 type="text"
@@ -70,9 +92,15 @@ const SearchCode = () => {
                     </div>
                     <div className="col copy-container">
                       {item.type === '초대 코드' ? (
-                        <span className="copy-code">초대코드 복사하기 👋</span>
+                        <span className="copy-code" onClick={() => doCopy(item.invitation)}>
+                          초대코드 복사하기 👋
+                        </span>
                       ) : (
-                        <span className="copy-link">초대링크로 이동하기 👋</span>
+                        <span className="copy-link">
+                          <a href={item.invitation} target="_blank" className="text-decoration-none">
+                            초대링크로 이동하기 👋
+                          </a>
+                        </span>
                       )}
                     </div>
                   </div>
