@@ -1,3 +1,8 @@
+.navbar-container {
+  margin-left: 246px;
+  margin-right: 245px;
+}
+
 .logo {
   font-weight: 900;
   color: #000;
@@ -14,7 +19,11 @@
 }
 
 .nav-item {
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+.nav-item h5 {
+  font-size: 20px;
 }
 
 .profile-image-container {
@@ -35,9 +44,12 @@
 .link {
   background-color: #38a5e1;
   color: #ffffff;
+  /* width: 182px;
+  height: 50px; */
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: 400;
 }
 
 .banner-container {
@@ -120,6 +132,7 @@
   display: block;
   position: relative;
   padding-top: 2rem;
+  padding-bottom: 0;
   border-bottom: 0px;
 }
 
@@ -137,6 +150,7 @@
 
 .modal-body .desc {
   font-size: 0.8rem;
+  padding-bottom: 1rem;
 }
 
 .modal-body .s-desc {
@@ -164,7 +178,7 @@
 /* 검색 결과 창 */
 .search-service-container {
   border-top: 1px solid #d8d8d8;
-  padding: 0rem 3.5rem;
+  padding: 0rem 246px;
 }
 
 .search-service-container .container {
@@ -181,7 +195,7 @@
 .search-service-container i {
   position: absolute;
   left: 1.5rem;
-  top: 1rem;
+  top: 1.2rem;
   color: #a7b0c5;
 }
 

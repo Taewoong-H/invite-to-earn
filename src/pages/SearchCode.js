@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import createLinkButton from '../image/링크 등록 버튼.png';
 
 const SearchCode = () => {
   const location = useLocation();
@@ -78,7 +79,12 @@ const SearchCode = () => {
           </div>
           <div className="result-container">
             <div className="container">
-              <p className="desc">🙂 서비스의 등록되어 있는 초대코드 / 초대링크 중 랜덤으로 하나만 보여드려요!</p>
+              <p className="desc">
+                <span role="img" aria-label="happy">
+                  🙂
+                </span>
+                &nbsp;서비스의 등록되어 있는 초대코드 / 초대링크 중 랜덤으로 하나만 보여드려요!
+              </p>
               {resultCode.map((item, index) => {
                 return (
                   <div className="result row" key={index}>
@@ -93,12 +99,18 @@ const SearchCode = () => {
                     <div className="col copy-container">
                       {item.type === '초대 코드' ? (
                         <span className="copy-code" onClick={() => doCopy(item.invitation)}>
-                          초대코드 복사하기 👋
+                          초대코드 복사하기&nbsp;
+                          <span role="img" aria-label="hi">
+                            👋
+                          </span>
                         </span>
                       ) : (
                         <span className="copy-link">
                           <a href={item.invitation} target="_blank" className="text-decoration-none">
-                            초대링크로 이동하기 👋
+                            초대링크로 이동하기&nbsp;
+                            <span role="img" aria-label="hi">
+                              👋
+                            </span>
                           </a>
                         </span>
                       )}
@@ -106,6 +118,10 @@ const SearchCode = () => {
                   </div>
                 );
               })}
+
+              <Link to="/invitation/create">
+                <img className="create-link-button" src={createLinkButton} width={320} alt="create-link-button"></img>
+              </Link>
             </div>
           </div>
         </div>

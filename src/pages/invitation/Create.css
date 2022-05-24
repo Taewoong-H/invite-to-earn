@@ -1,0 +1,101 @@
+.create-container {
+  min-height: 100vh;
+  padding: 3rem 15rem;
+  background-color: #f7f7f7;
+}
+
+.create-container .desc {
+  margin-bottom: 2rem;
+}
+
+.create-container .service-search {
+  margin-bottom: 0.25rem;
+}
+
+.create-container .service-search-input {
+  width: 60%;
+  height: 2.5rem;
+  border: 1px solid #dedede;
+  border-radius: 32px;
+  padding: 0rem 1rem;
+  margin-bottom: 3rem;
+}
+
+.create-container .invitation-type {
+  margin-bottom: 0.25rem;
+}
+
+.invitation-type-input {
+  margin-bottom: 3rem;
+}
+
+.invitation-type-input input[type='radio'] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.invitation-type-input input[type='radio'] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+}
+.invitation-type-input input[type='radio'] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #38a5e1;
+  border-radius: 20px;
+  box-sizing: border-box;
+} /* 보여질 부분의 스타일을 추가하면 된다. */
+.invitation-type-input input[type='radio']:checked + label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #38a5e1;
+}
+
+.invitation-type-input label span {
+  color: #7b7b7b;
+}
+
+/* input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + label {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #38a5e1;
+  border-radius: 20px;
+}
+
+input[type='radio']:checked + label::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  background-color: #38a5e1;
+  border-radius: 20px;
+} */

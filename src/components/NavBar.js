@@ -5,7 +5,7 @@ import LoginModal from './LoginModal';
 const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
   return (
     <nav className="navbar navbar-expand-md bg-white mt-2">
-      <div className="container">
+      <div className="container navbar-container">
         <Link to="/" className="text-decoration-none">
           <h2 className="navbar-brand my-0 py-2 logo">INVITE 2 EARN</h2>
         </Link>
@@ -15,7 +15,7 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
               <h5 className="mx-2 my-0 py-2 fw-light">About</h5>
             </li>
             <li className="nav-item text-center">
-              <h5 className="mx-2 my-0 py-2 fw-light">Contact</h5>
+              <h5 className="mx-2 my-0 py-2 fw-light">Team</h5>
             </li>
           </ul>
         </div>
