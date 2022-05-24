@@ -68,7 +68,7 @@ const Home = ({ getLoginInfo }) => {
             ></input>
             <i className="bi bi-search"></i>
           </div>
-          <div className="container mt-5">
+          <div className="container mt-5 service-box-container">
             <div className="row">
               {services
                 ? services.map((item, index) => {
@@ -78,15 +78,15 @@ const Home = ({ getLoginInfo }) => {
                         key={index}
                         onClick={(e) => searchService(e, item.service_kr)}
                       >
-                        <img src={item.logo_img} width={30} height={30}></img>
-                        <p className="mb-0 mt-1 service-name">{item.service_kr}</p>
+                        <img src={item.logo_img} width={40} height={40}></img>
+                        <p className="mb-1 mt-1 service-name">{item.service_kr}</p>
                       </div>
                     );
                   })
                 : ''}
               <div className="col service-box pt-1 px-0">
-                <p className="mb-0 fs-5">🧐</p>
-                <p className="mb-0 mt-1">전체보기</p>
+                <p className="mb-1 mt-2 fs-5">🧐</p>
+                <p className="mb-0 mt-2">전체보기</p>
               </div>
             </div>
           </div>

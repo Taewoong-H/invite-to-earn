@@ -67,9 +67,9 @@ const CreateInvitation = ({ userProfile }) => {
     }
   });
   return (
-    <>
-      <div className="create-container text-start">
-        <div className="d-inline-block">
+    <div className="background">
+      <div className="container">
+        <div className="create-container d-inline-block text-start">
           <h5 className="desc">
             <strong>{userProfile.userNickname} 님</strong>의 서비스 초대코드 / 초대링크를 등록해주세요!
           </h5>
@@ -96,7 +96,7 @@ const CreateInvitation = ({ userProfile }) => {
             <span role="img" aria-label="letter">
               💌
             </span>
-            &nbsp;초대유형
+            &nbsp;초대 유형
           </p>
           <div className="invitation-type-input">
             <input
@@ -106,7 +106,7 @@ const CreateInvitation = ({ userProfile }) => {
               checked={invitationType === '초대 코드'}
               onChange={handleRadioChange}
             ></input>
-            <label for="invitation-code-check">
+            <label htmlFor="invitation-code-check">
               <span>초대코드</span>
             </label>
 
@@ -117,10 +117,17 @@ const CreateInvitation = ({ userProfile }) => {
               checked={invitationType === '초대 링크'}
               onChange={handleRadioChange}
             ></input>
-            <label for="invitation-link-check" className="mx-3">
+            <label htmlFor="invitation-link-check" className="mx-3">
               <span>초대링크</span>
             </label>
           </div>
+          <p className="invitation-desc">
+            <span role="img" aria-label="memo">
+              📝
+            </span>
+            &nbsp;혜택 설명
+          </p>
+          <textarea className="invitation-desc-input" value={desc} onChange={changeDesc} rows="5" cols="100"></textarea>
         </div>
         <div>
           <div className="service">
@@ -134,14 +141,13 @@ const CreateInvitation = ({ userProfile }) => {
           <label>{invitationType}</label>
           <input type="text" className="invitation" value={invitation} onChange={changeInvitation}></input>
           <label>설명</label>
-          <input type="text" className="invitation" value={desc} onChange={changeDesc}></input>
         </div>
 
         <button type="button" onClick={clickCreateInvitation}>
           링크 등록하기
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

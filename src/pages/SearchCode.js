@@ -66,16 +66,9 @@ const SearchCode = () => {
         <div>로딩중</div>
       ) : (
         <div className="search-code-container">
-          <div className="search-service-container">
-            <div className="container" onKeyPress={onSearchService}>
-              <i className="bi bi-search"></i>
-              <input
-                type="text"
-                className="search-service"
-                value={searchService}
-                onChange={changeSearchService}
-              ></input>
-            </div>
+          <div className="search-service-container" onKeyPress={onSearchService}>
+            <i className="bi bi-search"></i>
+            <input type="text" className="search-service" value={searchService} onChange={changeSearchService}></input>
           </div>
           <div className="result-container">
             <div className="container">
@@ -92,7 +85,7 @@ const SearchCode = () => {
                       <img className="logo" src={item.service_logo} alt={item.service_en}></img>
                     </div>
                     <div className="col name-container">
-                      <span className="tag">구독 서비스</span>
+                      <span className="tag">{item.category}</span>
                       <h3 className="name">{item.service_kr}</h3>
                       <p className="desc">{item.desc}</p>
                     </div>

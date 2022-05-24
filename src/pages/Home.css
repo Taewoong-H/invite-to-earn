@@ -46,18 +46,18 @@
   color: #ffffff;
   /* width: 182px;
   height: 50px; */
-  padding: 0.5rem 1rem;
+  padding: 15px 30px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 400;
 }
 
 .banner-container {
-  margin-top: 8rem;
+  margin-top: 10rem;
 }
 
 .banner {
-  font-size: 3rem;
+  font-size: 64px;
   font-weight: 900;
 }
 
@@ -66,7 +66,9 @@
 }
 
 .banner-sm {
-  font-size: 1rem;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.1em;
   color: #6e707e;
 }
 
@@ -88,6 +90,10 @@
   left: 2rem;
   top: 1rem;
   color: #a7b0c5;
+}
+
+.service-box-container {
+  padding: 0 50px;
 }
 
 .service-box {
@@ -179,10 +185,10 @@
 .search-service-container {
   border-top: 1px solid #d8d8d8;
   padding: 0rem 246px;
+  position: relative;
 }
 
 .search-service-container .container {
-  position: relative;
 }
 
 .search-service-container .search-service {
@@ -194,7 +200,7 @@
 
 .search-service-container i {
   position: absolute;
-  left: 1.5rem;
+  left: 256px;
   top: 1.2rem;
   color: #a7b0c5;
 }
@@ -261,7 +267,7 @@
 .result .copy-container .copy-code {
   background-color: #e4ecff;
   color: #4c5d82;
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -269,7 +275,7 @@
 .result .copy-container .copy-link {
   background-color: #f3eefe;
   color: #7a4c82;
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 20px;
   cursor: pointer;
 }

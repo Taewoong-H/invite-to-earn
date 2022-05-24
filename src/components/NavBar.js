@@ -30,7 +30,7 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
                 </h5>
               )}
             </li>
-            <li className="nav-item text-center">
+            <li className="nav-item my-auto text-center">
               <Link to="/invitation/create" className="text-decoration-none">
                 <div className="mx-2 my-0 py-2 link">링크 등록하기</div>
               </Link>

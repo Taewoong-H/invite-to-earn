@@ -1,6 +1,10 @@
+.background {
+  background-color: #f7f7f7;
+}
+
 .create-container {
   min-height: 100vh;
-  padding: 3rem 15rem;
+  padding-top: 60px;
   background-color: #f7f7f7;
 }
 
@@ -9,7 +13,7 @@
 }
 
 .create-container .service-search {
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .create-container .service-search-input {
@@ -22,7 +26,7 @@
 }
 
 .create-container .invitation-type {
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .invitation-type-input {
@@ -72,6 +76,14 @@
 
 .invitation-type-input label span {
   color: #7b7b7b;
+}
+
+.invitation-desc {
+  margin-bottom: 1rem;
+}
+
+.invitation-desc-input {
+  border: solid 1px #dedede;
 }
 
 /* input[type='radio'] {
