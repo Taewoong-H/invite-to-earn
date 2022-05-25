@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import SearchCode from './pages/SearchCode';
 import CreateInvitation from './pages/invitation/Create';
+import All from './pages/services/All';
 import './App.css';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/search" element={<SearchCode />}></Route>
           <Route path="/invitation/create" element={<CreateInvitation userProfile={userProfile} />}></Route>
+          <Route path="/services/all" element={<All />}></Route>
         </Routes>
       </div>
     </Router>

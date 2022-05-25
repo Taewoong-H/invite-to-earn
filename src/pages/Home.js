@@ -37,6 +37,10 @@ const Home = ({ getLoginInfo }) => {
     navigate(`/search?q=${param}`);
   };
 
+  const goToAll = () => {
+    navigate('/services/all');
+  };
+
   useEffect(() => {
     //ToDo: 로그아웃 일 때는 state.isLogin = false이게끔
     if (location.state && location.state.isLogin) {
@@ -84,7 +88,7 @@ const Home = ({ getLoginInfo }) => {
                     );
                   })
                 : ''}
-              <div className="col service-box pt-1 px-0">
+              <div className="col service-box pt-1 px-0" onClick={goToAll}>
                 <p className="mb-1 mt-2 fs-5">🧐</p>
                 <p className="mb-0 mt-2">전체보기</p>
               </div>

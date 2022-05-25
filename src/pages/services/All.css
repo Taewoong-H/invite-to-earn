@@ -1,0 +1,42 @@
+.service-all-container {
+  padding: 5rem 246px;
+}
+
+.service-all-header {
+  margin: 16px 12px;
+  border-bottom: 1px solid #dbdbdb;
+  align-items: center;
+}
+
+.service-all-header .tag {
+  background-color: #e8faf0;
+  color: #20ab7f;
+  margin: 0 10px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+.service-all-header .tag#one {
+  background-color: #e8f1fa;
+  color: #2c7ccd;
+}
+
+.service-all-header .tag#two {
+  background-color: #e8faf0;
+  color: #20ab7f;
+}
+
+.service-all-header .tag#three {
+  background-color: #faeae8;
+  color: #e1442e;
+}
+
+.service-all-header .tag#four {
+  background-color: #f7f7f7;
+  color: #6a6a6a;
+}
+
+.service-all {
+  margin: 16px 12px;
+}
