@@ -40,3 +40,8 @@
 .service-all {
   margin: 16px 12px;
 }
+
+.service-all .service-box {
+  padding: 10px 0 5px 0 !important;
+  margin: 0;
+}

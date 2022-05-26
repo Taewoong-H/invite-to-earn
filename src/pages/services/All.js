@@ -69,7 +69,7 @@ const All = () => {
                     {allService.map((service, i) => {
                       if (service.category === item) {
                         return (
-                          <div className="col-1" key={i}>
+                          <div className="col-xxl-1 col-2" key={i}>
                             <div
                               className="service-box text-center pt-1 px-0"
                               onClick={(e) => searchService(e, service.service_kr)}
