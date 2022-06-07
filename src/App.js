@@ -63,7 +63,7 @@ function App() {
         <Routes basename="https://joopjoop.xyz/">
           <Route path="/" element={<Home getLoginInfo={getLoginInfo} />}></Route>
           <Route path="/oauth/kakao/callback" element={<KakaoCallback />} />
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/profile" element={<Profile userProfile={userProfile} />}></Route>
           <Route path="/search" element={<SearchCode />}></Route>
           <Route path="/invitation/create" element={<CreateInvitation userProfile={userProfile} />}></Route>
           <Route path="/services/all" element={<All />}></Route>

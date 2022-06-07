@@ -37,9 +37,11 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
             </li>
             <li className="nav-item text-center">
               {isLogin ? (
-                <div className="profile-image-container">
-                  <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
-                </div>
+                <Link to="/profile">
+                  <div className="profile-image-container">
+                    <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
+                  </div>
+                </Link>
               ) : (
                 ''
               )}
