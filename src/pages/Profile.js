@@ -1,9 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Home.css';
 
 const Profile = ({ userProfile }) => {
   const [resultCode, setResultCode] = useState(['']);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { Kakao } = window;
 
   // ToDo: SWR을 이용해 전역 상태값으로 관리하기(새로고침시 userProfile을 못불러옴)
   const getProfile = async () => {
@@ -15,6 +20,19 @@ const Profile = ({ userProfile }) => {
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const getLogout = () => {
+    if (!Kakao.Auth.getAccessToken()) {
+      alert('Not logged in.');
+      return;
+    }
+
+    Kakao.Auth.logout(() => {
+      alert('로그아웃 되었습니다.');
+      navigate('/');
+      navigate(0);
+    });
   };
 
   useEffect(() => {
@@ -29,7 +47,7 @@ const Profile = ({ userProfile }) => {
             <h5>안녕하세요 {userProfile.userNickname} 님</h5>
             <p>마이 프로필에서 {userProfile.userNickname} 님이 등록하신 서비스 목록과 사용횟수를 확인하세요</p>
           </div>
-          <div className="col text-end">
+          <div className="logout col text-end" role="button" onClick={getLogout}>
             <p>로그아웃</p>
           </div>
         </div>
