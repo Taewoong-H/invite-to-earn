@@ -65,6 +65,26 @@ const SearchCode = () => {
     <>
       {isLoading ? (
         <div>로딩중</div>
+      ) : resultCode.length === 0 ? (
+        <div className="search-code-container">
+          <div className="search-service-container" onKeyPress={onSearchService}>
+            <i className="bi bi-search"></i>
+            <input type="text" className="search-service" value={searchService} onChange={changeSearchService}></input>
+          </div>
+          <div className="result-container">
+            <div className="container">
+              <div className="no-service">
+                <p>
+                  찾으시는 서비스가 없어요
+                  <span role="img" aria-label="sad">
+                    🥲
+                  </span>
+                </p>
+                <p>없는 서비스를 추가 등록하고 선점해보세요 :)</p>
+              </div>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="search-code-container">
           <div className="search-service-container" onKeyPress={onSearchService}>

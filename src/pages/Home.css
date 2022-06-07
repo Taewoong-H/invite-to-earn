@@ -285,6 +285,12 @@
   color: #7a4c82;
 }
 
+.result-container .container .no-service {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
 .logout {
   color: #ff4b4b;
 }
