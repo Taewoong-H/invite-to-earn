@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useUser from '../../components/useUser';
 import './Create.css';
 
-const CreateInvitation = ({ userProfile }) => {
+const CreateInvitation = () => {
   const navigate = useNavigate();
 
   const [serviceName, setServiceName] = useState('');
@@ -12,9 +13,11 @@ const CreateInvitation = ({ userProfile }) => {
   const [invitation, setInvitation] = useState('');
   const [desc, setDesc] = useState('');
 
+  const { user, isLoading, isError } = useUser();
+
   const clickCreateInvitation = async (e) => {
     const body = {
-      user_kakao_id: userProfile.userId,
+      user_kakao_id: user.id,
       service: serviceId[0],
       type: invitationType,
       invitation: invitation,
@@ -60,18 +63,20 @@ const CreateInvitation = ({ userProfile }) => {
   };
 
   useEffect(() => {
-    console.log(userProfile);
-    if (userProfile.constructor === Object && Object.keys(userProfile).length === 0) {
-      // alert('로그인하셔야 링크등록이 가능합니다^^');
-      // navigate('/');
+    console.log(user);
+    if (isError) {
+      alert('로그인하셔야 링크등록이 가능합니다^^');
+      navigate('/');
     }
   });
+
   return (
     <div className="background">
       <div className="container">
         <div className="create-container d-inline-block text-start">
           <h5 className="desc">
-            <strong>{userProfile.userNickname} 님</strong>의 서비스 초대코드 / 초대링크를 등록해주세요!
+            <strong>{!isError ? user.kakao_account.profile.nickname : ''} 님</strong>의 서비스 초대코드 / 초대링크를
+            등록해주세요!
           </h5>
 
           <p className="service-search">

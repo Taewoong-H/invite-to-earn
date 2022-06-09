@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginModal from './LoginModal';
 
-const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
+const NavBar = ({ isModal, userProfile, loginModalToggle }) => {
   return (
     <nav className="navbar navbar-expand-md bg-white mt-2">
       <div className="container navbar-container">
@@ -22,7 +22,7 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
         <div className="navbar-collapse">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item text-center">
-              {isLogin ? (
+              {userProfile ? (
                 ''
               ) : (
                 <h5 className="mx-2 my-0 py-2 fw-light login-button" onClick={loginModalToggle}>
@@ -36,10 +36,14 @@ const NavBar = ({ isLogin, isModal, userProfile, loginModalToggle }) => {
               </Link>
             </li>
             <li className="nav-item text-center">
-              {isLogin ? (
+              {userProfile ? (
                 <Link to="/profile">
                   <div className="profile-image-container">
-                    <img className="profile-image" src={userProfile.userProfileImage} alt="프로필 이미지"></img>
+                    <img
+                      className="profile-image"
+                      src={userProfile.kakao_account.profile.profile_image_url}
+                      alt="프로필 이미지"
+                    ></img>
                   </div>
                 </Link>
               ) : (

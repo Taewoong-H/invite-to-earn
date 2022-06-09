@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
 
-const Home = ({ getLoginInfo }) => {
+const Home = () => {
   const [serviceName, setServiceName] = useState('');
   const [services, setServices] = useState(['', '', '', '', '']);
 
@@ -42,11 +42,6 @@ const Home = ({ getLoginInfo }) => {
   };
 
   useEffect(() => {
-    //ToDo: 로그아웃 일 때는 state.isLogin = false이게끔
-    if (location.state && location.state.isLogin) {
-      console.log(location.state);
-      getLoginInfo();
-    }
     // 서비스 목록 불러오기
     getAllService();
   }, []);

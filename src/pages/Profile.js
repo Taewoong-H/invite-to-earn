@@ -1,19 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import useUser from '../components/useUser';
 import './Home.css';
 
-const Profile = ({ userProfile }) => {
+const Profile = () => {
   const [resultCode, setResultCode] = useState(['']);
 
   const navigate = useNavigate();
-  const location = useLocation();
   const { Kakao } = window;
 
-  // ToDo: SWR을 이용해 전역 상태값으로 관리하기(새로고침시 userProfile을 못불러옴)
+  const { user, isLoading, isError } = useUser();
+
   const getProfile = async () => {
     try {
-      const res = await axios.get(process.env.REACT_APP_DB_HOST + `/accounts/my-invitations/${userProfile.userId}`);
+      const res = await axios.get(process.env.REACT_APP_DB_HOST + `/accounts/my-invitations/${user.id}`);
       const result = res.data;
       console.log(result);
       setResultCode(result);
@@ -44,8 +45,10 @@ const Profile = ({ userProfile }) => {
       <div className="container">
         <div className="row align-items-center py-5">
           <div className="col text-start">
-            <h5>안녕하세요 {userProfile.userNickname} 님</h5>
-            <p>마이 프로필에서 {userProfile.userNickname} 님이 등록하신 서비스 목록과 사용횟수를 확인하세요</p>
+            <h5>안녕하세요 {user.kakao_account.profile.nickname} 님</h5>
+            <p>
+              마이 프로필에서 {user.kakao_account.profile.nickname} 님이 등록하신 서비스 목록과 사용횟수를 확인하세요
+            </p>
           </div>
           <div className="logout col text-end" role="button" onClick={getLogout}>
             <p>로그아웃</p>
