@@ -8,6 +8,7 @@ import SearchCode from './pages/SearchCode';
 import CreateInvitation from './pages/invitation/Create';
 import All from './pages/services/All';
 import useUser from './components/useUser';
+import { useSWRConfig } from 'swr';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [userProfile, setUserProfile] = useState({});
   const { Kakao } = window;
 
+  const { mutate } = useSWRConfig();
   const { user, isLoading, isError } = useUser();
 
   const loginModalToggle = () => {
@@ -54,6 +56,15 @@ function App() {
   //     }
   //   });
   // };
+
+  useEffect(() => {
+    Kakao.Auth.getStatusInfo(({ status }) => {
+      if (status === 'connected') {
+        mutate('/v2/user/me');
+      } else {
+      }
+    });
+  }, []);
 
   return (
     <Router>

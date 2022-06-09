@@ -13,6 +13,7 @@ const Profile = () => {
   const { user, isLoading, isError } = useUser();
 
   const getProfile = async () => {
+    // ToDo: 새로고침 시 user 업데이트 안됨. mutate로 갱신해줘야함
     try {
       const res = await axios.get(process.env.REACT_APP_DB_HOST + `/accounts/my-invitations/${user.id}`);
       const result = res.data;
@@ -45,9 +46,10 @@ const Profile = () => {
       <div className="container">
         <div className="row align-items-center py-5">
           <div className="col text-start">
-            <h5>안녕하세요 {user.kakao_account.profile.nickname} 님</h5>
+            <h5>안녕하세요 {user ? user.kakao_account.profile.nickname : ''} 님</h5>
             <p>
-              마이 프로필에서 {user.kakao_account.profile.nickname} 님이 등록하신 서비스 목록과 사용횟수를 확인하세요
+              마이 프로필에서 {user ? user.kakao_account.profile.nickname : ''} 님이 등록하신 서비스 목록과 사용횟수를
+              확인하세요
             </p>
           </div>
           <div className="logout col text-end" role="button" onClick={getLogout}>
